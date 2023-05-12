@@ -115,10 +115,10 @@ _deps
 mono_crash.*
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
+# [Dd]ebug/
+# [Dd]ebugPublic/
+# [Rr]elease/
+# [Rr]eleases/
 x64/
 x86/
 [Ww][Ii][Nn]32/
@@ -491,7 +491,7 @@ FodyWeavers.xsd
 
 ### Eclipse ###
 .metadata
-bin/
+# bin/
 tmp/
 *.bak
 *.swp
