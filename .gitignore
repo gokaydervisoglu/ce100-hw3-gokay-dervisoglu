@@ -5,10 +5,6 @@
 # Prerequisites
 *.d
 
-# Allow release and debug folders
-!ce100-hw3-algo-test-cs/Release/
-!ce100-hw3-algo-test-cs/Debug/
-
 # Object files
 *.o
 *.ko
@@ -963,3 +959,6 @@ coverage*[.json, .xml, .info]
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/c,csharp,vs,visualstudio,visualstudiocode,java,maven,c++,cmake,eclipse,netbeans
+
+/Release/
+/Debug/
