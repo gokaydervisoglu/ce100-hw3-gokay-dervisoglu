@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 
 namespace ce100_hw3_algo {
-/// <summary>
+ /// <summary>
 /// The Shortest Route Class finds the shortest route between two locations in a complex city road network using the Bellman-Ford algorithm.
 /// </summary>
-public class Shortest_Route_Class {
+ public class Shortest_Route_Class {
   /// <summary>
   /// The Edge class stores edge information between two vertexes.
   /// </summary>
@@ -91,12 +91,11 @@ public class Shortest_Route_Class {
   }
 }
 
-
-/// <summary>
+ /// <summary>
 /// The File Compression Decompression Class compresses and decompresses the "mp3 extension music file" of the specified size with the huffman algorithm,
 /// and these operations also read and write bytes.
 /// </summary>
-public class File_Compression_Decompression {
+ public class File_Compression_Decompression {
   /// <summary>
   /// A class for creating a Huffman Tree node.
   /// </summary>
@@ -527,4 +526,237 @@ public class File_Compression_Decompression {
 
 }
 
+ /// <summary>
+    /// \brief A class that represents a pipeline system.
+    /// </summary>
+ public class Pipeline_System
+    {
+        /// <summary>
+        /// \brief A class that represents an edge in a pipeline system.
+        /// </summary>
+        public class Edge
+        {
+            /// <summary>
+            /// The starting node of the edge.
+            /// </summary>
+            public int StartN
+            {
+                get;
+                set;
+            }
+            /// <summary>
+            /// The ending node of the edge.
+            /// </summary>
+            public int EndN
+            {
+                get;
+                set;
+            }
+            /// <summary>
+            /// The weight of the edge.
+            /// </summary>
+            public int Way
+            {
+                get;
+                set;
+            }
+        }
+
+        /// <summary>
+        /// The edges in the pipeline system.
+        /// </summary>
+        private List<Edge> edges;
+
+        /// <summary>
+        /// The parent nodes of the edges.
+        /// </summary>
+        private int[] parents;
+
+        /// <summary>
+        /// \brief Initializes a new instance of the Pipeline_System class.
+        /// </summary>
+        /// <param name="edges"></param>
+        public Pipeline_System(List<Edge> edges)
+        {
+            this.edges = edges.OrderBy(edge => edge.Way).ToList();
+            parents = new int[edges.Count];
+
+            for (int i = 0; i < parents.Length; i++)
+            {
+                parents[i] = i;
+            }
+        }
+
+        /// <summary>
+        /// \brief Implements the Kruskal's algorithm to find the minimum cost of a pipeline system.
+        /// \return The minimum cost of the pipeline system.
+        /// </summary>
+        /// <param name="edges"></param>
+        /// <returns></returns>
+        public int KruskalAlgo(List<Edge> edges)
+        {
+            int minimumcost = 0;
+
+            foreach (Edge edge in edges)
+            {
+                int StartNParent = FindParent(edge.StartN);
+                int EndNParent = FindParent(edge.EndN);
+
+                if (StartNParent != EndNParent)
+                {
+                    minimumcost += edge.Way;
+                    parents[StartNParent] = EndNParent;
+                }
+            }
+
+            return minimumcost;
+        }
+
+        /// <summary>
+        /// \brief Finds the parent node of a vertex.
+        /// \return The parent node of the vertex.
+        /// </summary>
+        /// <param name="vertex"></param>
+        /// <returns></returns>
+        private int FindParent(int vertex)
+        {
+            if (parents[vertex] != vertex)
+            {
+                parents[vertex] = FindParent(parents[vertex]);
+            }
+
+            return parents[vertex];
+        }
+    }
+
+ /// <summary>
+    /// A class for generating a furniture assembly guide based on dependencies between different furniture items.
+    /// </summary>
+ public class Furniture_Assembly_Guide
+    {
+        /// <summary>
+        /// A class representing a furniture item.
+        /// </summary>
+        public class Furniture
+        {
+            /// <summary>
+            /// The name of the furniture item.
+            /// </summary>
+            public string Name
+            {
+                get;
+                set;
+            }
+            /// <summary>
+            /// The ID of the furniture item.
+            /// </summary>
+            public int Id
+            {
+                get;
+                set;
+            }
+            /// <summary>
+            /// A list of IDs of furniture items that this item depends on.
+            /// </summary>
+            public List<int> Dependencies
+            {
+                get;
+                set;
+            }
+
+            /// <summary>
+            /// Creates a new instance of the Furniture class with the specified name and ID.
+            /// </summary>
+            /// <param name="name">The name of the furniture item.</param>
+            /// <param name="id">The ID of the furniture item.</param>
+            public Furniture(string name, int id)
+            {
+                Name = name;
+                Id = id;
+                Dependencies = new List<int>();
+            }
+        }
+
+        /// <summary>
+        /// A list of furniture items.
+        /// </summary>
+        private List<Furniture> Furnitures;
+
+        /// <summary>
+        /// Creates a new instance of the Furniture_Assembly_Guide class.
+        /// </summary>
+        public Furniture_Assembly_Guide()
+        {
+            Furnitures = new List<Furniture>();
+        }
+
+        /// <summary>
+        /// Adds a list of furniture items to the assembly guide.
+        /// </summary>
+        /// <param name="Furniture">The list of furniture items to add.</param>
+        public void AddFurniture(List<Furniture> Furniture)
+        {
+            Furnitures.AddRange(Furniture);
+        }
+
+        /// <summary>
+        /// Performs a depth-first search starting from the specified ID and adds the visited nodes to the specified stack.
+        /// </summary>
+        /// <param name="id">The ID of the node to start the search from.</param>
+        /// <param name="visited">A set of IDs of nodes that have already been visited.</param>
+        /// <param name="stack">A stack to store the visited nodes in reverse order.</param>
+        private void DFS(int id, HashSet<int> visited, Stack<int> stack)
+        {
+            visited.Add(id);
+
+            foreach (int dependency in Furnitures[id - 1].Dependencies)
+            {
+                if (!visited.Contains(dependency))
+                {
+                    DFS(dependency, visited, stack);
+                }
+            }
+
+            stack.Push(id);
+        }
+
+        /// <summary>
+        /// Returns a list of furniture item IDs in the order that they should be assembled based on their dependencies.
+        /// </summary>
+        /// <returns>A list of furniture item IDs in the order that they should be assembled.</returns>
+        public List<int> TopologicalSort()
+        {
+            HashSet<int> visited = new HashSet<int>();
+            Stack<int> stack = new Stack<int>();
+
+            foreach (Furniture Furniture in Furnitures)
+            {
+                if (!visited.Contains(Furniture.Id))
+                {
+                    DFS(Furniture.Id, visited, stack);
+                }
+            }
+
+            return stack.Reverse().ToList();
+        }
+
+        /// <summary>
+        /// Generates an assembly guide for the furniture items based on their dependencies.
+        /// </summary>
+        /// <returns>An array list of assembly steps for the furniture items.</returns>
+        public ArrayList GetAssemblySteps()
+        {
+            List<Furniture> sortedFurnitures = Furnitures.OrderBy(Furniture => TopologicalSort().IndexOf(Furniture.Id)).ToList();
+            ArrayList assemblySteps = new ArrayList();
+
+            for (int i = 0; i < sortedFurnitures.Count; i++)
+            {
+                Furniture Furniture = sortedFurnitures[i];
+                string dependencies = string.Join(", ", Furniture.Dependencies.Select(depId => Furnitures.First(depFurniture => depFurniture.Id == depId).Name));
+                assemblySteps.Add($"{i + 1}. Attach {Furniture.Name}");
+            }
+
+            return assemblySteps;
+        }
+    }
 }

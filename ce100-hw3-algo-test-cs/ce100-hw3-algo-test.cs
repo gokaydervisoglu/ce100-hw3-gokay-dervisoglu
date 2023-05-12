@@ -2,7 +2,7 @@ using ce100_hw3_algo;
 using System.Collections;
 
 namespace ce100_hw3_algo_test {
-/// <summary>
+ /// <summary>
 /// Tests the shortest route distance calculation using the Bellman-Ford algorithm.
 /// </summary>
 public class Shortest_Route_Test_Class {
@@ -72,10 +72,10 @@ public class Shortest_Route_Test_Class {
   }
 }
 
-/// <summary>
+ /// <summary>
 /// The tests include compressing and decompressing text and MP3 files using the Huffman coding algorithm.
 /// </summary>
-public class File_Compression_Decompression_Test {
+ public class File_Compression_Decompression_Test {
 
   [Fact]
   public void LoremIpsum_HuffmanCoding_Txt_Test() {
@@ -165,4 +165,5 @@ public class File_Compression_Decompression_Test {
     Assert.Equal(input, decompressed_Bytes);
   }
 }
+
 }
