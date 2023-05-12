@@ -7,7 +7,7 @@
 
 # Allow release and debug folders
 !TestProject.test/release/
-# !TestProject.test/debug/
+!TestProject.test/debug/
 
 # Object files
 *.o
