@@ -2,7 +2,8 @@ using ce100_hw3_algo;
 using System.Collections;
 using static ce100_hw3_algo.Furniture_Assembly_Guide;
 
-namespace ce100_hw3_algo_test {
+namespace ce100_hw3_algo_test 
+{
     /// <summary>
     /// Tests the shortest route distance calculation using the Bellman-Ford algorithm.
     /// </summary>
