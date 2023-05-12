@@ -6,8 +6,8 @@
 *.d
 
 # Allow release and debug folders
-!ce100-hw3-algo-test-cs/release/
-!ce100-hw3-algo-test-cs/debug/
+!ce100-hw3-algo-test-cs/Release/
+!ce100-hw3-algo-test-cs/Debug/
 
 # Object files
 *.o
