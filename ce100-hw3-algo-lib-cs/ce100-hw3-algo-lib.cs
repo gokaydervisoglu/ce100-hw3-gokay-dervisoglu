@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 
-namespace ce100_hw3_algo {
+namespace ce100_hw3_algo 
+{
 /// <summary>
 /// The Shortest Route Class finds the shortest route between two locations in a complex city road network using the Bellman-Ford algorithm.
 /// </summary>
