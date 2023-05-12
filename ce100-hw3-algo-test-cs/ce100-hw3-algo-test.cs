@@ -79,7 +79,7 @@ public class File_Compression_Decompression_Test {
 
   [Fact]
   public void LoremIpsum_HuffmanCoding_Txt_Test() {
-    string mp3_File_Path = "../music.mp3";
+    string mp3_File_Path = "music.mp3";
     string txt_File_Path = "Input_Txt.txt";
     long fileSize = new FileInfo(mp3_File_Path).Length;
     string loremIpsum = File_Compression_Decompression.Huffman_Helper.CreatingLoremIpsum(fileSize);
@@ -135,9 +135,9 @@ public class File_Compression_Decompression_Test {
 
   [Fact]
   public void File_Compression_Decompression_Mp3_Test() {
-    string txt_Input_File_Path = "../music.mp3";
+    string txt_Input_File_Path = "music.mp3";
             string txt_Comp_File_Path = "music.bin";
-    string detxt_Comp_File_Path = "../music.mp3";
+    string detxt_Comp_File_Path = "music.mp3";
             // Read the file contents
             byte[] input = File.ReadAllBytes(txt_Input_File_Path);
     // Create Huffman tree and encode the input file
