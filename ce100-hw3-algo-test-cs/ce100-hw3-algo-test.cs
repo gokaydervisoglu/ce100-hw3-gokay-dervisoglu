@@ -1,5 +1,6 @@
 using ce100_hw3_algo;
 using System.Collections;
+using static ce100_hw3_algo.Furniture_Assembly_Guide;
 
 namespace ce100_hw3_algo_test {
 /// <summary>
@@ -165,4 +166,96 @@ public class File_Compression_Decompression_Test {
     Assert.Equal(input, decompressed_Bytes);
   }
 }
+
+/// <summary>
+/// In this test, a list of edges representing a pipeline network is generated.
+/// The KruskalAlgo method is run on this edge list and the minimum cost is calculated.
+/// Then the calculated minimum cost is compared with the expected cost.
+/// </summary>
+public class Pipeline_System_Test_Class
+{
+    [Fact]
+    public void Pipeline_System_Test()
+    {
+        List<Pipeline_System.Edge> edges = new List<Pipeline_System.Edge> {
+        new Pipeline_System.Edge { StartN = 0, EndN = 1, Way = 1 },
+        new Pipeline_System.Edge { StartN = 0, EndN = 2, Way = 1 },
+        new Pipeline_System.Edge { StartN = 1, EndN = 2, Way = 3 },
+        new Pipeline_System.Edge { StartN = 1, EndN = 3, Way = 3 },
+        new Pipeline_System.Edge { StartN = 2, EndN = 3, Way = 8 },
+        new Pipeline_System.Edge { StartN = 2, EndN = 4, Way = 3 },
+        new Pipeline_System.Edge { StartN = 3, EndN = 4, Way = 1 },
+        new Pipeline_System.Edge { StartN = 3, EndN = 4, Way = 1 },
+        new Pipeline_System.Edge { StartN = 4, EndN = 5, Way = 6 },
+        new Pipeline_System.Edge { StartN = 4, EndN = 5, Way = 2 }
+        };
+        Pipeline_System kruskal = new Pipeline_System(edges);
+        int minimumcost = kruskal.KruskalAlgo(edges);
+        int distances = minimumcost;
+        Assert.Equal(14, distances);
+    }
+}
+
+/// <summary>
+/// This test creates an assembly guide according to the dependencies of the parts using the Belman with DFS method.
+/// </summary>
+public class Furniture_Assembly_Guide_Test_Class
+{
+    [Fact]
+    public void Furniture_Assembly_Guide_Test()
+    {
+        List<Furniture> Furnitures = new List<Furniture>()
+        {
+        new Furniture("Wardrobe partition", 1),
+        new Furniture("Cabinet floor", 2),
+        new Furniture("Shelf floor", 3),
+        new Furniture("Cabinet side doors", 4),
+        new Furniture("Bottom post for cabinet side doors", 5),
+        new Furniture("Cabinet Top cover", 6),
+        new Furniture("Cabinet legs", 7),
+        new Furniture("Cabinet Back cover", 8),
+        new Furniture("Wall Mount hinge", 9),
+        new Furniture("Cabinet Door", 10),
+        new Furniture("Wardrobe Shelf Long", 11),
+        new Furniture("Wardrobe Shelf Short", 12),
+        };
+        Furnitures[2].Dependencies.Add(1);
+        Furnitures[3].Dependencies.Add(2);
+        Furnitures[3].Dependencies.Add(3);
+        Furnitures[4].Dependencies.Add(4);
+        Furnitures[5].Dependencies.Add(1);
+        Furnitures[5].Dependencies.Add(4);
+        Furnitures[6].Dependencies.Add(5);
+        Furnitures[7].Dependencies.Add(1);
+        Furnitures[7].Dependencies.Add(4);
+        Furnitures[7].Dependencies.Add(6);
+        Furnitures[8].Dependencies.Add(8);
+        Furnitures[9].Dependencies.Add(4);
+        Furnitures[10].Dependencies.Add(1);
+        Furnitures[10].Dependencies.Add(4);
+        Furnitures[11].Dependencies.Add(1);
+        Furnitures[11].Dependencies.Add(3);
+        Furniture_Assembly_Guide furnitureAssemblyGuide = new Furniture_Assembly_Guide();
+        furnitureAssemblyGuide.AddFurniture(Furnitures);
+        ArrayList assemblySteps = furnitureAssemblyGuide.GetAssemblySteps();
+        List<string> expectedSteps = new List<string>()
+        {
+            "1. Attach Wardrobe partition",
+            "2. Attach Cabinet floor",
+            "3. Attach Shelf floor",
+            "4. Attach Cabinet side doors",
+            "5. Attach Bottom post for cabinet side doors",
+            "6. Attach Cabinet Top cover",
+            "7. Attach Cabinet legs",
+            "8. Attach Cabinet Back cover",
+            "9. Attach Wall Mount hinge",
+            "10. Attach Cabinet Door",
+            "11. Attach Wardrobe Shelf Long",
+            "12. Attach Wardrobe Shelf Short"
+        };
+        ArrayList actualSteps = furnitureAssemblyGuide.GetAssemblySteps();
+        Assert.Equal(expectedSteps, actualSteps.Cast<string>());
+    }
+}
+
 }

@@ -45,7 +45,9 @@ jobs:
       - name: Check Test Coverage
         run: |
             $ErrorActionPreference = 'Stop'
+
             $coverageThreshold = 97.00
+
             $coverageReportPath = Get-ChildItem -Recurse -Filter 'coverage.cobertura.xml' | Select-Object -ExpandProperty FullName
             $lines = Get-Content $coverageReportPath
             $xmlContent = $lines -join "`n"
