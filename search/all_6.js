@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['huffman_5fhelper_14',['Huffman_Helper',['../classce100__hw3__algo_1_1File__Compression__Decompression_1_1Huffman__Helper.html',1,'ce100_hw3_algo::File_Compression_Decompression']]],
-  ['huffmantree_5fclass_15',['HuffmanTree_Class',['../classce100__hw3__algo_1_1File__Compression__Decompression_1_1HuffmanTree__Class.html',1,'ce100_hw3_algo::File_Compression_Decompression']]],
-  ['huffmantree_5fclass_5fmusic_16',['HuffmanTree_Class_Music',['../classce100__hw3__algo_1_1File__Compression__Decompression_1_1HuffmanTree__Class__Music.html',1,'ce100_hw3_algo::File_Compression_Decompression']]]
+  ['getassemblysteps_19',['GetAssemblySteps',['../classce100__hw3__algo_1_1Furniture__Assembly__Guide.html#a722c6eb3e53f91e69cab9e5e3d424d6b',1,'ce100_hw3_algo::Furniture_Assembly_Guide']]]
 ];

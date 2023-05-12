@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['isleaf_47',['IsLeaf',['../classce100__hw3__algo_1_1File__Compression__Decompression_1_1HuffmanTree__Class.html#aa3fc80d1a4d6729e9f2bcc7e26ebe8ca',1,'ce100_hw3_algo.File_Compression_Decompression.HuffmanTree_Class.IsLeaf()'],['../classce100__hw3__algo_1_1File__Compression__Decompression_1_1HuffmanTree__Class__Music.html#af9fac012e460a9e40483662842d55fa5',1,'ce100_hw3_algo.File_Compression_Decompression.HuffmanTree_Class_Music.IsLeaf()']]]
+  ['furniture_64',['Furniture',['../classce100__hw3__algo_1_1Furniture__Assembly__Guide_1_1Furniture.html#aef67b6fa74da08e5924d3b0fd53b1942',1,'ce100_hw3_algo::Furniture_Assembly_Guide::Furniture']]],
+  ['furniture_5fassembly_5fguide_65',['Furniture_Assembly_Guide',['../classce100__hw3__algo_1_1Furniture__Assembly__Guide.html#a0601fd42fcab63f8ee5226c753826d90',1,'ce100_hw3_algo::Furniture_Assembly_Guide']]]
 ];
