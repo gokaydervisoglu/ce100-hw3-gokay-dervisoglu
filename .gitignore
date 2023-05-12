@@ -5,10 +5,6 @@
 # Prerequisites
 *.d
 
-# Allow release and debug folders
-!ce100-hw3-algo-test-cs/release/
-!ce100-hw3-algo-test-cs/debug/
-
 # Object files
 *.o
 *.ko
@@ -115,10 +111,10 @@ _deps
 mono_crash.*
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
+# [Dd]ebug/
+#[Dd]ebugPublic/
+#[Rr]elease/
+#[Rr]eleases/
 x64/
 x86/
 [Ww][Ii][Nn]32/
@@ -963,3 +959,6 @@ coverage*[.json, .xml, .info]
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/c,csharp,vs,visualstudio,visualstudiocode,java,maven,c++,cmake,eclipse,netbeans
+
+#!"ce100-hw3-algo-test-cs\bin\Release\net6.0\music.mp3"
+!"ce100-hw3-algo-test-cs\bin"

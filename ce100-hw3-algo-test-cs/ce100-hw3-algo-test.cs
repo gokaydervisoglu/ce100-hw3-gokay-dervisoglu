@@ -136,10 +136,10 @@ public class File_Compression_Decompression_Test {
   [Fact]
   public void File_Compression_Decompression_Mp3_Test() {
     string txt_Input_File_Path = "music.mp3";
-    string txt_Comp_File_Path = "music.bin";
+            string txt_Comp_File_Path = "music.bin";
     string detxt_Comp_File_Path = "music.mp3";
-    // Read the file contents
-    byte[] input = File.ReadAllBytes(txt_Input_File_Path);
+            // Read the file contents
+            byte[] input = File.ReadAllBytes(txt_Input_File_Path);
     // Create Huffman tree and encode the input file
     File_Compression_Decompression.HuffmanTree_Class_Music tree = new File_Compression_Decompression.HuffmanTree_Class_Music();
     tree.Build(input);
